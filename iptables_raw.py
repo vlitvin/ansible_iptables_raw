@@ -367,16 +367,14 @@ class Iptables:
                     table_names = open(iptables_names_file, 'r').read()
                     if table_names:
                         return table_names.splitlines()
-                else:
-                    return self.TABLES
+                return self.TABLES
             else:
                 iptables_names_file = '/proc/net/ip6_tables_names'
                 if os.path.isfile(iptables_names_file):
                     table_names = open(iptables_names_file, 'r').read()
                     if table_names:
                         return table_names.splitlines()
-                else:
-                    return self.TABLES
+                return self.TABLES
         raise Exception("Cannot get list of active tables")
 
     # If /etc/debian_version exist, this means this is a debian based OS (Ubuntu, Mint, etc...)
